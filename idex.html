@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia Emocional</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #03133f; /* Color de fondo */
+            color: #ffffff; /* Color del texto */
+            text-align: center;
+            height: 145vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .title-container {
+            background-color: #7ec2d3; /* Color del recuadro del título */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%;
+            margin: auto;
+            margin-top: 50px;
+            box-sizing: border-box;
+        }
+
+        .title {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .content-container {
+            background-color: #4c9dd3; /* Color del recuadro del texto */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%;
+            margin: auto;
+            margin-top: 20px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            margin: 0;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #1e778d; /* Color del botón */
+            color: #ffffff; /* Color del texto del botón */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #113b57; /* Color al pasar el ratón */
+        }
+
+        .quiz-box {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(121, 231, 226, 0.5);
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .back-btn {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+
+        .equipo-logo {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 55px;
+            height: 55px;
+        }
+
+        .result-box {
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        #result {
+            color: #ffffff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <h1 class="title">Inteligencia Emocional</h1>
+    </div>
+    <div class="content-container">
+        <p class="content">La inteligencia emocional es la capacidad de reconocer, entender y gestionar nuestras propias emociones, así como las de los demás. Es esencial para los líderes y directivos, ya que mejora el manejo del estrés, la toma de decisiones y el ambiente de trabajo.</p> <p></p>
+        <p class="content">Componentes clave de la inteligencia emocional:</p> <p></p>
+        <ul class="content">
+            <li>Autoconciencia: Conocer nuestras propias emociones.</li>
+            <li>Autorregulación: Manejar nuestras emociones adecuadamente.</li>
+            <li>Motivación: Usar nuestras emociones para alcanzar metas.</li>
+            <li>Empatía: Reconocer y comprender las emociones de los demás.</li>
+            <li>Habilidades sociales: Gestionar las relaciones de manera efectiva.</li> <p></p>
+        </ul>
+        <p class="content">Desarrollar estas habilidades no solo beneficia al directivo, sino también a todo su entorno laboral, creando una atmósfera de trabajo más positiva y productiva.</p>
+        <p class="content">Si quieres conocer tu nivel de Inteligencia Emocional completa la siguiente actividad para reflexionar:</p>
+        <div class="quiz-box">
+            <div class="question">
+                <label for="autoconciencia">¿Qué tan bien reconoces tus propias emociones?</label><br>
+                <select id="autoconciencia">
+                    <option value="0">No reconozco mis emociones</option>
+                    <option value="1">A veces reconozco mis emociones</option>
+                    <option value="2">Reconozco bien mis emociones</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="autorregulacion">¿Qué tan bien manejas tus emociones en situaciones difíciles?</label><br>
+                <select id="autorregulacion">
+                    <option value="0">No manejo bien mis emociones</option>
+                    <option value="1">A veces manejo bien mis emociones</option>
+                    <option value="2">Manejo bien mis emociones</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="empatia">¿Qué tan bien comprendes las emociones de los demás?</label><br>
+                <select id="empatia">
+                    <option value="0">No comprendo las emociones de los demás</option>
+                    <option value="1">A veces comprendo las emociones de los demás</option>
+                    <option value="2">Comprendo bien las emociones de los demás</option>
+                </select>
+            </div>
+            <button class="btn" onclick="evaluateEmotionalIntelligence()">Evaluar</button>
+            <div id="result" class="result-box"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function evaluateEmotionalIntelligence() {
+            var autoconciencia = parseInt(document.getElementById("autoconciencia").value);
+            var autorregulacion = parseInt(document.getElementById("autorregulacion").value);
+            var empatia = parseInt(document.getElementById("empatia").value);
+
+            var total = autoconciencia + autorregulacion + empatia;
+
+            var resultElement = document.getElementById("result");
+
+            if (total <= 2) {
+                resultElement.innerHTML = "Tienes oportunidad de mejorar tu inteligencia emocional. Trabaja en reconocer y manejar tus emociones, y en comprender las emociones de los demás.";
+            } else if (total <= 4) {
+                resultElement.innerHTML = "Tu inteligencia emocional es aceptable, pero puedes seguir desarrollándola para mejorar tus relaciones y manejo de situaciones difíciles.";
+            } else {
+                resultElement.innerHTML = "Tienes una excelente inteligencia emocional. Reconoces y manejas bien tus emociones y comprendes las de los demás, lo cual es crucial para el liderazgo efectivo.";
+            }
+        }
+    </script>
+</body>
+</html>
